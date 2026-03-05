@@ -14,19 +14,29 @@
       --line:rgba(232,238,252,.12);
       --accent:#f2b544;
       --accent2:#6aa7ff;
-      --white:#ffffff;
     }
+    /* Light mode overrides */
+    body.light{
+      --bg:#f6f8fc;
+      --card:#ffffff;
+      --ink:#0b1220;
+      --muted:#4b5563;
+      --line:rgba(0,0,0,.10);
+    }
+
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 10% 0%, rgba(106,167,255,.18), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(242,181,68,.16), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(106,167,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(242,181,68,.16), transparent 55%),
+        var(--bg);
       color:var(--ink);
       line-height:1.45;
     }
     a{color:inherit; text-decoration:none}
+
     .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 80px;}
 
     /* NAV */
@@ -46,13 +56,16 @@
       flex:1;
       min-width:260px;
     }
+
     .links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+
     .pill{
       border:1px solid var(--line);
       background:rgba(15,26,46,.55);
       padding:8px 12px; border-radius:999px;
       font-size:13px; color:var(--muted);
       white-space:nowrap;
+      cursor:pointer;
     }
 
     /* Buttons */
@@ -87,6 +100,7 @@
       .navRight{align-items:flex-start}
       .links,.ctaRow{justify-content:flex-start}
     }
+
     .card{
       border:1px solid var(--line);
       background: linear-gradient(180deg, rgba(15,26,46,.85), rgba(15,26,46,.55));
@@ -94,6 +108,12 @@
       padding:18px;
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
+    /* In light mode, the gradient can look muddy; keep it crisp */
+    body.light .card{
+      background: var(--card);
+      box-shadow: 0 10px 30px rgba(0,0,0,.10);
+    }
+
     h1{margin:0 0 8px; font-size:34px; letter-spacing:.3px}
     .sub{color:var(--muted); margin:0 0 14px; font-size:15px}
 
@@ -110,6 +130,7 @@
       padding:12px;
       background:rgba(11,18,32,.35);
     }
+    body.light .kpi{background:rgba(0,0,0,.03);}
     .kpi b{display:block; font-size:18px}
     .kpi span{display:block; color:var(--muted); font-size:12px; margin-top:4px}
 
@@ -125,6 +146,7 @@
       border:1px solid var(--line);
       background:rgba(11,18,32,.35);
     }
+    body.light .tag{background:rgba(0,0,0,.03);}
 
     /* SECTIONS */
     .grid{
@@ -166,6 +188,7 @@
       padding:10px;
       background:rgba(11,18,32,.35);
     }
+    body.light .metric{background:rgba(0,0,0,.03);}
     .metric b{display:block; font-size:15px}
     .metric span{display:block; color:var(--muted); font-size:12px; margin-top:3px}
 
@@ -183,6 +206,7 @@
       padding:12px;
       background:rgba(11,18,32,.35);
     }
+    body.light .box{background:rgba(0,0,0,.03);}
     .box h3{margin:0 0 6px; font-size:13px; letter-spacing:.4px; color:var(--muted); text-transform:uppercase}
     .box ul{margin:0; padding-left:18px}
     .box li{margin:6px 0; color:var(--ink); font-size:14px}
@@ -194,8 +218,8 @@
       overflow:hidden;
       margin-top:12px;
     }
+    body.light .shot{border:1px dashed rgba(0,0,0,.2); background:rgba(0,0,0,.02);}
     .shot img{width:100%; display:block}
-    .note{color:var(--muted); font-size:12px; margin-top:8px}
 
     .footer{
       margin-top:22px;
@@ -204,7 +228,9 @@
       color:var(--muted); font-size:13px;
       padding-top:18px; border-top:1px solid var(--line);
     }
+
     .accent{color:var(--accent)}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
   </style>
 </head>
 
@@ -223,6 +249,9 @@
           <a class="pill" href="#tracking">Tracking & Tech</a>
           <a class="pill" href="#skills">Skills</a>
           <a class="pill" href="#contact">Contact</a>
+
+          <!-- Theme toggle -->
+          <button id="themeToggle" class="pill" type="button" aria-label="Toggle dark/light mode">🌙</button>
         </div>
 
         <!-- NAV CTA Buttons -->
@@ -306,7 +335,6 @@
       </div>
 
       <div class="cases">
-
         <!-- CASE 1: SPICES (GOOGLE ADS) -->
         <div class="card">
           <div class="caseHead">
@@ -462,7 +490,6 @@
             </a>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -524,7 +551,11 @@
             <ul><li>Philippines (Remote)</li></ul>
           </div>
         </div>
-        <div class="note">Want a downloadable CV button here too? Upload your PDF into the repo and I’ll link it.</div>
+
+        <!-- Download CV button (upload PDF into repo root with this exact filename) -->
+        <div class="ctaRow" style="margin-top:15px;">
+          <a class="btn primary" href="Mark-Denver-Mendoza-CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+        </div>
 
         <div class="footer">
           <div>© <span id="y"></span> Mark Denver Mendoza</div>
@@ -535,7 +566,26 @@
   </div>
 
   <script>
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage persistence
+    const toggle = document.getElementById("themeToggle");
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light");
+      toggle.textContent = "☀️";
+    } else {
+      toggle.textContent = "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      const isLight = document.body.classList.contains("light");
+      toggle.textContent = isLight ? "☀️" : "🌙";
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
   </script>
 </body>
 </html>
