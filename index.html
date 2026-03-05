@@ -1,74 +1,502 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>Mark Denver Mendoza | Paid Media Portfolio</title>
-<style>
-body{
-font-family:Arial;
-background:#f5f5f5;
-margin:40px;
-}
-.container{
-max-width:1000px;
-margin:auto;
-background:white;
-padding:40px;
-border-radius:8px;
-}
-h1{
-color:#222;
-}
-.case{
-margin-top:40px;
-}
-img{
-width:100%;
-border-radius:6px;
-margin-top:10px;
-}
-.metric{
-font-weight:bold;
-color:#0b5cff;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mark Denver Mendoza | Performance Marketing Portfolio</title>
+  <meta name="description" content="Performance Marketing Specialist specializing in Google Ads, Meta Ads, and Conversion Tracking." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a2e;
+      --ink:#e8eefc;
+      --muted:#b8c3dd;
+      --line:rgba(232,238,252,.12);
+      --accent:#f2b544;
+      --accent2:#6aa7ff;
+      --white:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(106,167,255,.18), transparent 60%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(242,181,68,.16), transparent 55%),
+                  var(--bg);
+      color:var(--ink);
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 80px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:18px; padding:10px 0 26px;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:4px;
+    }
+    .brand b{font-size:18px; letter-spacing:.2px}
+    .brand span{color:var(--muted); font-size:13px}
+    .links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(15,26,46,.55);
+      padding:8px 12px; border-radius:999px;
+      font-size:13px; color:var(--muted);
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+      margin-bottom:18px;
+    }
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} }
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,26,46,.85), rgba(15,26,46,.55));
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    h1{margin:0 0 8px; font-size:34px; letter-spacing:.3px}
+    .sub{color:var(--muted); margin:0 0 14px; font-size:15px}
+    .kpis{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    @media (max-width:520px){ .kpis{grid-template-columns:1fr} }
+    .kpi{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      background:rgba(11,18,32,.35);
+    }
+    .kpi b{display:block; font-size:18px}
+    .kpi span{display:block; color:var(--muted); font-size:12px; margin-top:4px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      border-radius:12px;
+      padding:10px 14px;
+      font-weight:600;
+      font-size:14px;
+      border:1px solid var(--line);
+      background:rgba(11,18,32,.35);
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(242,181,68,.95), rgba(106,167,255,.95));
+      color:#0b1220;
+      border:none;
+    }
+    .stack{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:10px;
+    }
+    .tag{
+      font-size:12px;
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(11,18,32,.35);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    .sectionTitle{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; margin:0 0 10px;
+    }
+    .sectionTitle h2{margin:0; font-size:18px}
+    .sectionTitle span{color:var(--muted); font-size:13px}
+    .cases{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }
+    @media (max-width:900px){ .cases{grid-template-columns:1fr} }
+    .caseHead{
+      display:flex; flex-direction:column; gap:4px; margin-bottom:10px;
+    }
+    .caseHead b{font-size:16px}
+    .caseHead small{color:var(--muted)}
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      margin:10px 0 12px;
+    }
+    @media (max-width:900px){ .metrics{grid-template-columns:repeat(2,1fr)} }
+    .metric{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px;
+      background:rgba(11,18,32,.35);
+    }
+    .metric b{display:block; font-size:15px}
+    .metric span{display:block; color:var(--muted); font-size:12px; margin-top:3px}
+    .cols{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    @media (max-width:900px){ .cols{grid-template-columns:1fr} }
+    .box{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      background:rgba(11,18,32,.35);
+    }
+    .box h3{margin:0 0 6px; font-size:13px; letter-spacing:.4px; color:var(--muted); text-transform:uppercase}
+    .box ul{margin:0; padding-left:18px}
+    .box li{margin:6px 0; color:var(--ink); font-size:14px}
+    .shot{
+      border:1px dashed rgba(232,238,252,.25);
+      background:rgba(11,18,32,.25);
+      border-radius:14px;
+      overflow:hidden;
+      margin-top:12px;
+    }
+    .shot img{width:100%; display:block}
+    .note{color:var(--muted); font-size:12px; margin-top:8px}
+    .footer{
+      margin-top:22px;
+      display:flex; justify-content:space-between; align-items:center;
+      gap:12px; flex-wrap:wrap;
+      color:var(--muted); font-size:13px;
+      padding-top:18px; border-top:1px solid var(--line);
+    }
+    .accent{color:var(--accent)}
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <!-- NAV -->
+    <div class="nav">
+      <div class="brand">
+        <b>Mark Denver Mendoza</b>
+        <span>Performance Marketing Specialist · Google Ads · Meta Ads · Conversion Tracking</span>
+      </div>
+      <div class="links">
+        <a class="pill" href="#case-studies">Case Studies</a>
+        <a class="pill" href="#tracking">Tracking & Tech</a>
+        <a class="pill" href="#skills">Skills</a>
+        <a class="pill" href="#contact">Contact</a>
+      </div>
+    </div>
 
-<div class="container">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="card">
+        <h1>Paid Media that drives <span class="accent">qualified leads</span> and <span class="accent">sales</span>.</h1>
+        <p class="sub">
+          I build and optimize end-to-end performance systems across Google Ads, Meta Ads, and Local Services Ads —
+          from campaign architecture and STAG structure to GTM/GA4 tracking, landing pages, and reporting.
+        </p>
 
-<h1>Mark Denver Mendoza</h1>
-<p>Paid Media Specialist | Google Ads & Meta Ads</p>
+        <div class="kpis">
+          <div class="kpi">
+            <b>4+ Years</b>
+            <span>Google Ads + Meta Ads management</span>
+          </div>
+          <div class="kpi">
+            <b>Multi-Industry</b>
+            <span>Legal · Healthcare · Home Services · eCom</span>
+          </div>
+          <div class="kpi">
+            <b>Full-Funnel</b>
+            <span>Campaign → Tracking → LP Optimization</span>
+          </div>
+        </div>
 
-<p>I manage performance-driven campaigns for agencies and businesses focusing on lead generation and eCommerce growth.</p>
+        <div class="ctaRow">
+          <a class="btn primary" href="#case-studies">View Case Studies</a>
+          <a class="btn" href="mailto:iammarkdenvermendoza@gmail.com">Email Me</a>
+        </div>
 
-<hr>
+        <div class="stack" id="skills">
+          <span class="tag">Google Search</span>
+          <span class="tag">Performance Max</span>
+          <span class="tag">Meta Lead Gen</span>
+          <span class="tag">Retargeting</span>
+          <span class="tag">LSA</span>
+          <span class="tag">GTM + GA4</span>
+          <span class="tag">Offline Conversions</span>
+          <span class="tag">Looker Studio</span>
+        </div>
+      </div>
 
-<div class="case">
-<h2>Unique Spice eCommerce Brand</h2>
-<p class="metric">773% ROAS | $155K Revenue from $20K ad spend</p>
-<img src="spices.png">
-</div>
+      <div class="card">
+        <div class="sectionTitle">
+          <h2>Notable brands</h2>
+          <span>Agency collaboration</span>
+        </div>
+        <div class="box">
+          <ul>
+            <li><b>Grant Cardone</b> — paid media support via agency collaboration</li>
+            <li><b>Spice brand (eCommerce)</b> — Google Ads sales + ROAS optimization</li>
+            <li><b>Nevada law firm</b> — mesothelioma/asbestos lead gen</li>
+            <li><b>Elderly care home</b> — inquiries via search campaigns</li>
+          </ul>
+        </div>
 
-<div class="case">
-<h2>Fitness Program Campaign</h2>
-<p class="metric">886 purchases generated</p>
-<img src="fitness.png">
-</div>
+        <div class="sectionTitle" style="margin-top:14px;">
+          <h2>What I deliver</h2>
+          <span>How I work</span>
+        </div>
+        <div class="box">
+          <ul>
+            <li>Campaign builds & restructuring (STAG / intent-led)</li>
+            <li>Tracking setup: GTM, GA4, calls, forms, offline conversions</li>
+            <li>Optimization: negatives, search terms, creative & audience testing</li>
+            <li>Reporting dashboards (Looker Studio)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<div class="case">
-<h2>Nevada Law Firm Lead Generation</h2>
-<p class="metric">260 leads | $43 CPL</p>
-<img src="lawfirm.png">
-</div>
+    <!-- CASE STUDIES -->
+    <div class="grid" id="case-studies">
+      <div class="sectionTitle">
+        <h2>Case Studies</h2>
+        <span>Real results across eCommerce + lead gen</span>
+      </div>
 
-<div class="case">
-<h2>Elderly Care Home Lead Generation</h2>
-<p class="metric">$40 Cost per Conversion</p>
-<img src="elderlycare.png">
-</div>
+      <div class="cases">
 
-</div>
+        <!-- CASE 1: SPICES (GOOGLE ADS) -->
+        <div class="card">
+          <div class="caseHead">
+            <b>Case Study 1 — Unique Spices (eCommerce)</b>
+            <small>Google Ads · Revenue / ROAS focus</small>
+          </div>
 
+          <div class="metrics">
+            <div class="metric"><b>10.8K</b><span>Clicks</span></div>
+            <div class="metric"><b>$20K</b><span>Ad spend</span></div>
+            <div class="metric"><b>$155K</b><span>Conv. value</span></div>
+            <div class="metric"><b>773%</b><span>ROAS</span></div>
+          </div>
+
+          <div class="cols">
+            <div class="box">
+              <h3>Goal</h3>
+              <ul>
+                <li>Drive online purchases profitably</li>
+                <li>Scale while maintaining high ROAS</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>What I did</h3>
+              <ul>
+                <li>Intent-led keyword targeting</li>
+                <li>Bid + search term optimization</li>
+                <li>Purchase value tracking improvements</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="shot">
+            <!-- Replace src with your screenshot file path/url -->
+            <img src="spices.png" alt="Google Ads performance screenshot for spices eCommerce" />
+          </div>
+          <div class="note">Tip: upload your screenshot and replace <b>YOUR_IMAGE_1.png</b> with the image URL or filename.</div>
+        </div>
+
+        <!-- CASE 2: FITNESS (META ADS) -->
+        <div class="card">
+          <div class="caseHead">
+            <b>Case Study 2 — Fitness Programs (Sales)</b>
+            <small>Meta Ads · Purchase conversion campaigns</small>
+          </div>
+
+          <div class="metrics">
+            <div class="metric"><b>886</b><span>Purchases</span></div>
+            <div class="metric"><b>£48,334</b><span>Spend</span></div>
+            <div class="metric"><b>£114,331</b><span>Revenue</span></div>
+            <div class="metric"><b>2.37x</b><span>ROAS</span></div>
+          </div>
+
+          <div class="cols">
+            <div class="box">
+              <h3>Goal</h3>
+              <ul>
+                <li>Drive program purchases at scale</li>
+                <li>Maintain efficient CPA / ROAS</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>What I did</h3>
+              <ul>
+                <li>Cold audience testing + scaling</li>
+                <li>Retargeting for high-intent visitors</li>
+                <li>Creative + audience segmentation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="shot">
+            <img src="fitness.png" alt="Meta Ads performance screenshot for fitness program" />
+          </div>
+          <div class="note">Tip: if you want, you can blur brand names or IDs before uploading.</div>
+        </div>
+
+        <!-- CASE 3: LAW FIRM (GOOGLE ADS) -->
+        <div class="card">
+          <div class="caseHead">
+            <b>Case Study 3 — Nevada Law Firm (Lead Gen)</b>
+            <small>Google Ads · High-intent search lead generation</small>
+          </div>
+
+          <div class="metrics">
+            <div class="metric"><b>1.41K</b><span>Clicks</span></div>
+            <div class="metric"><b>260</b><span>Conversions</span></div>
+            <div class="metric"><b>$43.58</b><span>Cost / conv.</span></div>
+            <div class="metric"><b>$11.3K</b><span>Spend</span></div>
+          </div>
+
+          <div class="cols">
+            <div class="box">
+              <h3>Goal</h3>
+              <ul>
+                <li>Generate qualified case inquiries</li>
+                <li>Control CPL and reduce irrelevant leads</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>What I did</h3>
+              <ul>
+                <li>STAG structure + intent alignment</li>
+                <li>Negative keyword expansion</li>
+                <li>Call + form conversion tracking</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="shot">
+            <img src="lawyer.png" alt="Google Ads performance screenshot for law firm leads" />
+          </div>
+        </div>
+
+        <!-- CASE 4: ELDERLY CARE (GOOGLE ADS) -->
+        <div class="card">
+          <div class="caseHead">
+            <b>Case Study 4 — Elderly Care Home (Lead Gen)</b>
+            <small>Google Ads · Local inquiries & calls</small>
+          </div>
+
+          <div class="metrics">
+            <div class="metric"><b>1.42K</b><span>Clicks</span></div>
+            <div class="metric"><b>88.99</b><span>Conversions</span></div>
+            <div class="metric"><b>$40.16</b><span>Cost / conv.</span></div>
+            <div class="metric"><b>$3.57K</b><span>Spend</span></div>
+          </div>
+
+          <div class="cols">
+            <div class="box">
+              <h3>Goal</h3>
+              <ul>
+                <li>Drive qualified inquiries for assisted living</li>
+                <li>Optimize CPL for scalable pipeline</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>What I did</h3>
+              <ul>
+                <li>High-intent keyword targeting</li>
+                <li>Search term filtering + negatives</li>
+                <li>Call tracking + lead form tracking</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="shot">
+            <img src="elderlycare.png" alt="Google Ads performance screenshot for elderly care leads" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TRACKING / TECH -->
+    <div class="grid" id="tracking">
+      <div class="sectionTitle">
+        <h2>Tracking & Technical Expertise</h2>
+        <span>What sets me apart from typical media buyers</span>
+      </div>
+
+      <div class="cases">
+        <div class="card">
+          <div class="caseHead">
+            <b>Conversion Tracking Systems</b>
+            <small>GTM · GA4 · Calls · Forms · Offline conversions</small>
+          </div>
+          <div class="box">
+            <ul>
+              <li>GTM implementation and event setup (forms, click-to-call, lead forms)</li>
+              <li>GA4 event configuration and conversion mapping</li>
+              <li>Offline conversion workflows (where applicable)</li>
+              <li>Debugging discrepancies between platforms</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="caseHead">
+            <b>Landing Pages & Integrations</b>
+            <small>Elementor · WordPress · GoDaddy Builder · Laravel</small>
+          </div>
+          <div class="box">
+            <ul>
+              <li>Landing page optimization for lead quality and conversion rate</li>
+              <li>Typeform implementation + logic improvements</li>
+              <li>GTM script installation within templates (including Laravel <code>master.blade.php</code>)</li>
+              <li>Reporting dashboards using Looker Studio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="grid" id="contact">
+      <div class="sectionTitle">
+        <h2>Contact</h2>
+        <span>Open to remote roles and agency collaboration</span>
+      </div>
+
+      <div class="card">
+        <div class="cols">
+          <div class="box">
+            <h3>Email</h3>
+            <ul><li><a href="mailto:iammarkdenvermendoza@gmail.com">iammarkdenvermendoza@gmail.com</a></li></ul>
+          </div>
+          <div class="box">
+            <h3>Location</h3>
+            <ul><li>Philippines (Remote)</li></ul>
+          </div>
+        </div>
+        <div class="note">If you want, we can add LinkedIn and a downloadable PDF CV button.</div>
+      </div>
+
+      <div class="footer">
+        <div>© <span id="y"></span> Mark Denver Mendoza</div>
+        <div>Built for Google Ads · Meta Ads · Tracking · Performance Marketing</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
